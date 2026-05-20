@@ -1,0 +1,12 @@
+2026-05-16 11:48:24.316 No ASGI app assignments found in C:\Users\Aayush\Documents\New_folder\streamlit_healthcheck.py
+2026-05-16 11:48:24.876 Filtered 70 packages down to 4 candidates for component scanning
+2026-05-16 11:48:24.877 Scanning 4 candidate packages for component manifests using 4 worker threads
+2026-05-16 11:48:25.286 Found 0 component manifests total
+2026-05-16 11:48:25.288 No asset roots to watch
+2026-05-16 11:48:25.289 File watching not started
+2026-05-16 11:48:25.290 Starting new event loop for server
+2026-05-16 11:48:25.293 Starting server...
+2026-05-16 11:48:25.588 Starting uvicorn server on 127.0.0.1:8504
+2026-05-16 11:48:25.895 Runtime state: RuntimeState.INITIAL -> RuntimeState.NO_SESSIONS_CONNECTED
+2026-05-16 11:48:25.897 Uvicorn server started on 127.0.0.1:8504
+2026-05-16 11:48:26.083 Setting up signal handler
