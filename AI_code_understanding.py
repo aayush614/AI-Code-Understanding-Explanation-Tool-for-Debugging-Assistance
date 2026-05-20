@@ -8,7 +8,7 @@ from datetime import datetime
 import os
 
 # 1. GLOBAL SYSTEM CONFIGURATION
-st.set_page_config(page_title="DevAI Diagnostics Studio", layout="wide", initial_sidebar_state="expanded")
+st.set_page_config(page_title="AI Code Understanding & Explanation Tool for Debugging Assistance", layout="wide", initial_sidebar_state="expanded")
 
 # Environment variables for sensitive configurations
 MONGO_URI = os.getenv("MONGO_URI", "mongodb://localhost:27017/")
@@ -65,7 +65,7 @@ class CodeAnalysisSchema(BaseModel):
 # 3. IDENTITY ACCESS MANAGEMENT (IAM) FUNCS
 # -------------------------------------------------------------
 def register_user() -> None:
-    st.title("Register Terminal Node")
+    st.header("New User Registration")
     st.caption("Establish authorized credentials to access analytics layers.")
 
     if users_collection is None:
@@ -75,10 +75,10 @@ def register_user() -> None:
     with st.form("register_form", clear_on_submit=True):
         name = st.text_input("Full Name", key="reg_name")
         username = st.text_input("Username", key="reg_username")
-        email = st.text_input("Email Mapping String", key="reg_email")
+        email = st.text_input("Email", key="reg_email")
         password = st.text_input("Password", type="password", key="reg_password")
         confirm_password = st.text_input("Confirm Password", type="password", key="reg_confirm_password")
-        submitted = st.form_submit_button("Provision Access Profile", use_container_width=True)
+        submitted = st.form_submit_button("Register", use_container_width=True)
 
     if not submitted:
         return
@@ -119,13 +119,13 @@ def register_user() -> None:
         st.error(f"An unexpected error occurred during registration: {e}")
 
 def render_login() -> None:
-    st.title("Secure Login Console")
+    st.header("User Login")
     st.caption("Verify token credentials to initialize workspace pipelines.")
 
     with st.form("login_form"):
-        username = st.text_input("Username Identity", key="login_username")
-        password = st.text_input("Password Matrix", type="password", key="login_password")
-        submitted = st.form_submit_button("Authenticate System Session", use_container_width=True)
+        username = st.text_input("Username ", key="login_username")
+        password = st.text_input("Password ", type="password", key="login_password")
+        submitted = st.form_submit_button("Login", use_container_width=True)
 
     if not submitted:
         return
@@ -218,9 +218,9 @@ def diagnostic_label(item):
 
 def render_analysis_result(data, lang):
     tab_summary, tab_debug, tab_fix = st.tabs([
-        "ðŸ“‹ Logic Breakdowns",
-        "ðŸ› Defect Trace Logs",
-        "ðŸ› ï¸ Patched Production Variant",
+        "💻 Logic Breakdowns",
+        "🪲 Defect Trace Logs",
+        "✅ Patched Production Variant",
     ])
 
     with tab_summary:
@@ -247,7 +247,8 @@ def render_analysis_result(data, lang):
 # 5. CORE ROUTING EXECUTION CONTROL GATEWAY
 # -------------------------------------------------------------
 if not st.session_state.get("authenticated"):
-    login_tab, register_tab = st.tabs(["🔒 Secure Authentication Gateway", "📝 Register New Terminal Node"])
+    st.header("⚡AI Code Understanding & Explanation Tool for Debugging Assistance")
+    login_tab, register_tab = st.tabs(["🔒 Login", "📝 New User Registration"])
     with login_tab:
         render_login()
     with register_tab:
@@ -263,15 +264,15 @@ if "diagnostic_history" not in st.session_state:
 # -------------------------------------------------------------
 # 6. ENTERPRISE STUDIO LAYOUT (MAIN WORKSPACE LAYER)
 # -------------------------------------------------------------
-st.title("⚡ Enterprise DevAI Diagnostics Engine Studio")
-st.caption(f"Operator Node Active: {st.session_state.name} | Persistence Cluster Online")
+st.title("⚡ AI Code Understanding & Explanation Tool for Debugging Assistance")
+st.caption(f"Master: {st.session_state.name} | Model: {st.session_state.get('llm_model_choice', 'N/A')}")
 st.markdown("---")
 
 # SIDEBAR MONITOR WORKSPACE
 with st.sidebar:
     st.subheader("System Access Profile")
     st.write(f"Logged as: **{st.session_state.username}**")
-    if st.button("Terminate Session 🔓", use_container_width=True):
+    if st.button("Logout 🔓", use_container_width=True):
         st.session_state.clear() # Clear all session state for a clean logout
         st.rerun()
     
