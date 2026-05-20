@@ -1,8 +1,0 @@
-2026-05-16 11:47:15.245 No ASGI app assignments found in C:\Users\Aayush\Documents\New_folder\app1.py
-2026-05-16 11:47:18.160 Filtered 70 packages down to 4 candidates for component scanning
-2026-05-16 11:47:18.164 Scanning 4 candidate packages for component manifests using 4 worker threads
-2026-05-16 11:47:19.124 Found 0 component manifests total
-2026-05-16 11:47:19.127 No asset roots to watch
-2026-05-16 11:47:19.128 File watching not started
-2026-05-16 11:47:19.130 Starting new event loop for server
-2026-05-16 11:47:19.137 Starting server...
